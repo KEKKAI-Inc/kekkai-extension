@@ -1,0 +1,186 @@
+{
+  "common.minutes": {
+    "en": "minutes",
+    "ja": "分"
+  },
+  "common.seconds": {
+    "en": "seconds",
+    "ja": "秒"
+  },
+  "home.running_tip": {
+    "en": "Kekkai is running on the back of you.\nWe will be there when you attempt a transaction.",
+    "ja": "KEKKAIは目に見えないですが、ウォレットを常に守ってくれています。\nトランザクションが発生するとシミュレーターが起動します。"
+  },
+  "home.be_working_tip_before": {
+    "en": "Kekkai will be working after ",
+    "ja": "KEKKAIは "
+  },
+  "home.be_working_tip_after": {
+    "en": ".\nPress recover button to let us protect your wallet.",
+    "ja": "後に自動的にアクティブモードに戻ります\nアクティブモードでは取引を分析してくれます"
+  },
+  "home.btn_pause": {
+    "en": "Pause for 30 minutes",
+    "ja": "30分間機能をオフにする"
+  },
+  "home.btn_recover": {
+    "en": "Recover to work mode",
+    "ja": "アクティブモードへ戻る"
+  },
+  "defend.warning": {
+    "en": "Warning",
+    "ja": "注意"
+  },
+  "defend.alarm": {
+    "en": "Alarm",
+    "ja": "警告"
+  },
+  "defend.safe": {
+    "en": "Safe",
+    "ja": "安全"
+  },
+  "defend.approval_to": {
+    "en": "Giving approval to {{$1}}",
+    "ja": " {{$1}}を認証する"
+  },
+  "defend.approval_all_to": {
+    "en": "Giving {{$1}} to a unverified contract is dangerous.",
+    "ja": "認証されていないコントラクトに{{$1}}を許可するのは大変危険です。"
+  },
+  "defend.approval_tip_text_before": {
+    "en": "Confirming this will let it It can withdraw ",
+    "ja": "これを認証すると、あなたのウォレットから"
+  },
+  "defend.approval_tip_text_after": {
+    "en": " from your wallet. This is very dangerous and we recommend to cancel this.",
+    "ja": "を自由に抜き出すことが可能になります。これは非常に危険なため、キャンセルをお勧めします。"
+  },
+  "defend.approval_all_nft": {
+    "en": "ALL {{$1}} NFTs",
+    "ja": "全ての{{$1}}NFT"
+  },
+  "defend.sign_now": {
+    "en": "eth_sign signing now",
+    "ja": "ETH サインに署名しています"
+  },
+  "defend.sign_tip_title": {
+    "en": "What is eth_sign?",
+    "ja": "ETHサインとは？"
+  },
+  "defend.sign_tip_content": {
+    "en": "A 32 byte message hash must be passed in for signature, so the message hash signer alone will not know what he is signing, whether it is a transaction profile, or anything else, so there is a potential risk of phishing. ",
+    "ja": "署名には32バイトのメッセージハッシュを渡す必要があるため、メッセージハッシュ署名者だけでは何に署名しているのか分からないため、フィッシングの可能性があります。"
+  },
+  "defend.transaction_happen": {
+    "en": "Changes happen in this transaction",
+    "ja": "この取引で発生する変更"
+  },
+  "defend.honeypot_detected": {
+    "en": "Honeypot scam detected.",
+    "ja": "ハニポット詐欺を検出しました。"
+  },
+  "defend.what_honeypot": {
+    "en": "What is honeypot scam?",
+    "ja": "ハニーポット詐欺とは？"
+  },
+  "defend.what_honeypot_content": {
+    "en": "Smart contracts that look vulnerable but actually are not. It makes users believe that they can benefit from this contract, while in reality only the creator can retrieve them. We recommend cancelling this.",
+    "ja": "一見脆弱、あるいは普通に見えるが実際は違うスマートコントラクトを使った詐欺手法。ユーザーにそのコントラクトで利益が出るように見せかけ、実際はコントラクト作成者（詐欺師）だけが利益が出るように設計されている。そのような取引を検出するとKEKKAIではキャンセルを勧めています。"
+  },
+  "defend.transfer_token_tip": {
+    "en": "This transaction could be a scam and it's gonna transfer your token.",
+    "ja": "この取引は詐欺の可能性があり、その場合あなたのトークンが盗まれてしまいます"
+  },
+  "defend.transaction_loading": {
+    "en": "Simulating...",
+    "ja": "シミュレーション中…"
+  },
+  "defend.transaction_fail": {
+    "en": "This transaction is gonna be failed{{$1}}.",
+    "ja": "このトランザクションはエラーが発生します{{$1}}。"
+  },
+  "defend.transaction_fail_cost_gas": {
+    "en": " and it's gonna cost about {{$1}}eth which is a waste of gas",
+    "ja": "さらに、{{$1}}ethの無駄なガス代が発生します"
+  },
+  "defend.transaction_cost_gas": {
+    "en": "Suspected {{$1}}eth gas fee",
+    "ja": "{{$1}}ethのガス代が発生する見込みです"
+  },
+  "defend.btn_reject": {
+    "en": "Reject",
+    "ja": "拒否"
+  },
+  "defend.btn_proceed": {
+    "en": "Proceed",
+    "ja": "認証"
+  },
+  "defend.reason": {
+    "en": "Reason",
+    "ja": "理由"
+  },
+  "defend.no_token_change": {
+    "en": "No token is gonna changed but gas will cost.",
+    "ja": "トランザクションの結果特に変化は起きませんが、ガス代がかかってしまいます。"
+  },
+  "header.back": {
+    "en": "Back",
+    "ja": "戻る"
+  },
+  "setting.language": {
+    "en": "Language",
+    "ja": "言語"
+  },
+  "setting.version_label": {
+    "en": "App version:",
+    "ja": "バージョン:"
+  },
+  "copy.tip": {
+    "en": "Copy to clipboard",
+    "ja": "クリップボードにコピー"
+  },
+  "copy.success": {
+    "en": "Copied!",
+    "ja": "コピーされました！"
+  },
+  "setting.tip": {
+    "en": "Setting here 🚀",
+    "ja": "言語設定🚀"
+  },
+  "feedback.feedback": {
+    "en": "feedback",
+    "ja": "フィードバックへ"
+  },
+  "feedback.handbook": {
+    "en": "handbook",
+    "ja": "取扱説明書"
+  },
+  "feedback.goto": {
+    "en": "Go to ",
+    "ja": "進む"
+  },
+  "feedback.see": {
+    "en": "See ",
+    "ja": "を見る、または"
+  },
+  "feedback.or": {
+    "en": " or ",
+    "ja": "を送る"
+  },
+  "feedback.dot": {
+    "en": ".",
+    "ja": "。"
+  },
+  "feedback.got_problem": {
+    "en": "Got a problem with KEKKAI? ",
+    "ja": "KEKKAI使用に何か問題がありましたか？"
+  },
+  "feedback.why_verified": {
+    "en": "Why this could be verified? ",
+    "ja": "なぜこの取引を認証したか教えていただけませんか？"
+  },
+  "feedback.why_alarm": {
+    "en": "Why am I getting this alarm? ",
+    "ja": "なぜ警告が表示されたのでしょうか？"
+  }
+}

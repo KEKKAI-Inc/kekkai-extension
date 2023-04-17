@@ -1,0 +1,21 @@
+.kekkai-link-group {
+  display: flex;
+  margin-top: 15px;
+  border-radius: 36px;
+  background: #EAEAEA;
+  padding: 6px 10px;
+  user-select: none;
+}
+
+.kekkai-link-group img {
+  border-radius: 50%;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.kekkai-link-group img:hover {
+  background: #6B6B6B;
+}

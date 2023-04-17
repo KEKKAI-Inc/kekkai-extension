@@ -1,0 +1,29 @@
+.kekkai-setting-dropdown {
+  font-size: 14px;
+  margin-top: 5px;
+  background: #333333;
+  font-weight: 700;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  width: 80%;
+  cursor: pointer;
+  padding: 10px 12px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.kekkai-setting-dropdown img {
+  height: 20px;
+}
+
+.kekkai-setting-dropdown-content {
+  position: absolute;
+  top: 100%;
+  background: #333333;
+  border-radius: 8px;
+  width: 100%;
+  left: 0;
+  margin-top: 2px;
+  padding: 10px 12px;
+}

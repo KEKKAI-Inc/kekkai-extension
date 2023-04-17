@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "__firefox__manifest_version": 2,
+
+  "name": "KEKKAI 結界",
+  "version": "0.2.0",
+  "description": "KEKKAIとは、スキャムやフィッシングサイト防止のウォレットセキュリティプラグインです。危険な操作やスキャムをSimulationにより検知し、(Set approval for allやeth_signなど)のアラートとトランザクションの結果を表示させます。",
+  "background": {
+    "__chrome__service_worker": "background.bundle.js",
+    "__firefox__scripts": ["background.bundle.js"]
+  },
+
+  "__firefox__browser_specific_settings": {
+    "gecko": {
+      "id": "kekkai@refractlabs.io"
+    }
+  },
+
+  "__chrome__action": {
+    "default_title": "Kekkai",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+
+  "__firefox__browser_action": {
+    "default_title": "Kekkai",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icon.png",
+        "metamask/step1_image1.png",
+        "metamask/step1_image2.png",
+        "metamask/step2_image1.png",
+        "metamask/step2_image2.png",
+        "metamask/step3"
+      ],
+      "matches": []
+    }
+  ],
+
+  "__firefox__web_accessible_resources": [
+    "icon.png",
+    "metamask/step1_image1.png",
+    "metamask/step1_image2.png",
+    "metamask/step2_image1.png",
+    "metamask/step2_image2.png",
+    "metamask/step3",
+    "injectedScript.bundle.js"
+  ],
+
+  "__chrome__host_permissions": ["file://*/*", "http://*/*", "https://*/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["file://*/*", "http://*/*", "https://*/*"],
+      "js": ["contentScript.bundle.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+
+  "permissions": ["storage", "scripting", "tabs"],
+
+  "__firefox__permissions": ["<all_urls>", "storage"]
+}
