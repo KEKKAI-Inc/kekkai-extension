@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useEffect, useMemo, useState } from 'react';
-import CERTIFIED_JSON from '../constants/json/certified.json';
-import { getCache, setCache } from '../utils/cache';
 
-const REMOTE_CERTIFIED_URL = 'https://firebasestorage.googleapis.com/v0/b/unismart-fc274.appspot.com/o/kekkai%2Fcertified.json?alt=media&token=ed2399bd-b80c-4b5c-9a7b-1c93cdc2e91c';
+import CERTIFIED_JSON from '@/constants/json/certified.json';
+import { getCache, setCache } from '@/utils/cache';
+import { IS_DEV } from '@/utils/dev';
+import { getTokenInfo } from '@/utils/eth';
+
+const REMOTE_CERTIFIED_URL =
+  'https://firebasestorage.googleapis.com/v0/b/kekkai/o/kekkai%2Fkekkai-json%2Fcertified.json?alt=media&token=bfc5804e-f2dd-40a9-b41c-b140abc2b0b9';
 
 function transformKeyToLower(obj: Record<string, any>): Record<string, any> {
   const tempObj = Object.create(null);
@@ -14,13 +18,29 @@ function transformKeyToLower(obj: Record<string, any>): Record<string, any> {
 }
 
 export function useCertified({
-  origin: _origin,
+  origin: _origin = '',
+  chainId,
   contract = '___NOOP___',
+  favIconUrl,
 }: {
-  origin: string;
+  origin?: string;
+  chainId: number;
   contract?: string;
-}) {
-  const [ certifiedMap, setCertifiedMap ] = useState<Record<string, { name: string }>>(transformKeyToLower(CERTIFIED_JSON));
+  favIconUrl?: string;
+}): {
+  isCertified: boolean;
+  name?: string;
+  type?: string;
+  logo?: string;
+} {
+  const [certifiedMap, setCertifiedMap] = useState<Record<string, { name: string; type?: string }>>(
+    transformKeyToLower(CERTIFIED_JSON),
+  );
+  const [logo, setLogo] = useState<string | undefined>(favIconUrl);
+
+  useEffect(() => {
+    setLogo(favIconUrl);
+  }, [favIconUrl]);
 
   const origin = useMemo(() => {
     const originArr = _origin.split('://');
@@ -28,6 +48,10 @@ export function useCertified({
   }, [_origin]);
 
   useEffect(() => {
+    if (IS_DEV) {
+      return;
+    }
+
     (async () => {
       try {
         const cacheKey = 'CERTIFY';
@@ -49,13 +73,22 @@ export function useCertified({
     })();
   }, []);
 
-  const isCertified = useMemo(() => {
-    return !!(certifiedMap[origin] || certifiedMap[contract.toLocaleLowerCase()]);
+  const certifiedInfo = useMemo(() => {
+    return certifiedMap[contract.toLocaleLowerCase()] || certifiedMap[origin];
   }, [certifiedMap, contract, origin]);
 
-  const certifiedName = useMemo(() => {
-    return (certifiedMap[origin] || certifiedMap[contract.toLocaleLowerCase()])?.name;
-  }, [certifiedMap, contract, origin]);
+  useEffect(() => {
+    if (certifiedInfo?.type === 'token') {
+      getTokenInfo(contract, chainId)
+        .then(({ logo }) => logo && setLogo(logo))
+        .catch((err) => console.log(err));
+    }
+  }, [certifiedInfo, chainId, contract]);
 
-  return { isCertified, certifiedName };
+  return {
+    isCertified: !!certifiedInfo,
+    name: certifiedInfo?.name,
+    type: certifiedInfo?.type,
+    logo,
+  };
 }

@@ -1,0 +1,14 @@
+.tippy-content {
+  white-space: pre-line;
+}
+
+.tippy-content-light {
+  color: #202020;
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tippy-content-light > .tippy-arrow {
+  color: #FFF;
+}

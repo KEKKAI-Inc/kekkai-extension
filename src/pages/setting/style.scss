@@ -1,0 +1,28 @@
+.kekkai-setting-button {
+  background: #333333;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+.kekkai-setting-allowlist-btn {
+  text-align: center;
+  font-weight: 400;
+  margin: 9px 0 31px;
+  position: relative;
+}
+
+.kekkai-setting-allowlist-btn-new {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: red;
+}

@@ -1,4 +1,4 @@
-import browser from 'webextension-polyfill';
+import browser from '../polyfill/browser';
 
 export async function setCache(cacheName: string, cacheKey: string, value: any, valid?: number) {
   const prev = (await browser.storage.local.get(cacheName))[cacheName];

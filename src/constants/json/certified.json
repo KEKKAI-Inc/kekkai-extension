@@ -1,8 +1,85 @@
 {
   "opensea.io": {
-    "name": "Opensea"
+    "name": "Opensea",
+    "type": "marketplace"
   },
   "blur.io": {
-    "name": "Blur"
+    "name": "Blur",
+    "type": "marketplace"
+  },
+  "x2y2.io": {
+    "name": "X2Y2",
+    "type": "marketplace"
+  },
+  "looksrare.org": {
+    "name": "Looksrare",
+    "type": "marketplace"
+  },
+  "tofunft.com": {
+    "name": "tofuNFT",
+    "type": "marketplace"
+  },
+  "app.uniswap.org": {
+    "name": "Uniswap",
+    "type": "dex"
+  },
+  "app.1inch.io": {
+    "name": "1inch",
+    "type": "dex"
+  },
+  "wallet.polygon.technology": {
+    "name": "Polygon Wallet"
+  },
+  "staking.polygon.technology": {
+    "name": "Polygon Staking"
+  },
+  "burn.polygon.technology": {
+    "name": "Polygon Burn"
+  },
+  "safe-bridge.polygon.technology": {
+    "name": "Polygon Bridge"
+  },
+  "www.sushi.com": {
+    "name": "Sushi",
+    "type": "dex"
+  },
+  "ink3.to": {
+    "name": "Link3"
+  },
+  "app.aave.com": {
+    "name": "Aave"
+  },
+  "app.twitfi.com": {
+    "name": "TwitFi",
+    "type": "gamefi"
+  },
+  "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": {
+    "name": "Wrapped Ether",
+    "type": "token"
+  },
+  "0xaD47d76Dff283084D2BdfD78F93F7d3015479A0F": {
+    "name": "EDO8an"
+  },
+  "neostackey.io": {
+    "name": "NeoStackey"
+  },
+  "staking.xana.net": {
+    "name": "XANA STAKING"
+  },
+  "app.xana.net": {
+    "name": "XANA"
+  },
+  "bridge.arbitrum.io": {
+    "name": "Arbitrum Bridge"
+  },
+  "revoke.cash": {
+    "name": "Revoke Cash"
+  },
+  "app.arthswap.org": {
+    "name": "Arthswap"
+  },
+  "www.bungee.exchange": {
+    "name": "Bungee",
+    "type": "bridge"
   }
 }

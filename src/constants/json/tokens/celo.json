@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Celo native asset",
+    "symbol": "CELO",
+    "address": "0x471EcE3750Da237f93B8E339c536989b8978a438"
+  },
+  {
+    "name": "Wrapped Ethereum",
+    "symbol": "cETH",
+    "address": "0x2DEf4285787d58a2f811AF24755A8150622f4361"
+  }
+]

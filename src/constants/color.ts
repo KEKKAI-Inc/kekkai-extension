@@ -1,4 +1,4 @@
-import { Risk } from '../types/risk';
+import { Risk } from '@/types/risk';
 
 export const RISK_COLOR = {
   [Risk.NONE]: '#333333',
@@ -9,7 +9,7 @@ export const RISK_COLOR = {
 
 export const RISK_COLOR_HOVER = {
   [Risk.NONE]: '#333333',
-  [Risk.SAFE]: '#6379B2A',
+  [Risk.SAFE]: '#379B2A',
   [Risk.ALARM]: '#C99426',
   [Risk.WARNING]: '#CA2336',
-}
+};

@@ -24,3 +24,13 @@
 .kekkai-token-id {
   margin-left: 8px;
 }
+
+.kekkai-token-amount {
+  font-weight: 500;
+}
+
+.kekkai-item-loading {
+  animation: kekkai-loading-rotate 1.2s linear infinite;
+  height: 24px;
+  margin: 0 4px;
+}

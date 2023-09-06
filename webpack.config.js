@@ -1,101 +1,30 @@
-var webpack = require('webpack'),
-  path = require('path'),
-  fileSystem = require('fs-extra'),
-  env = require('./utils/env'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin');
+var path = require('path');
+
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var fileSystem = require('fs-extra');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var TerserPlugin = require('terser-webpack-plugin');
+var webpack = require('webpack');
 
-/**
- * Taken from https://github.com/abhijithvijayan/wext-manifest-webpack-plugin
- * updated to hackily use webpack 5.
- *
- * TODO(jqphu): make a pull request to merge this back in.
- */
-const PLUGIN_NAME = 'wext-manifest-webpack-plugin';
-
-function getEntryResource(module) {
-  const resource = null;
-
-  if (module && typeof module.resource === 'string') {
-    return module.resource;
-  }
-
-  return resource;
-}
-
-class WextManifestWebpackPlugin {
-  // Define `apply` as its prototype method which is supplied with compiler as its argument
-  apply(compiler) {
-    /**
-     *  webpack 4+ comes with a new plugin system.
-     *
-     *  (// ToDo: support old plugin system //)
-     */
-    const { hooks } = compiler;
-
-    // Check for hooks for 4+
-    if (hooks) {
-      // Runs plugin after a compilation has been created.
-      hooks.compilation.tap(PLUGIN_NAME, (compilation) => {
-        // Triggered when an asset from a chunk was added to the compilation.
-        compilation.hooks.chunkAsset.tap(PLUGIN_NAME, (chunk, file) => {
-          // Only handle js files with entry modules
-          if (!file.endsWith('.js')) {
-            return;
-          }
-
-          for (const entryModule of compilation.chunkGraph.getChunkEntryModulesIterable(
-            chunk
-          )) {
-            // Returns path containing name of asset
-            const resource = getEntryResource(entryModule);
-            const isManifest =
-              (resource && /manifest\.json$/.test(resource)) || false;
-
-            if (isManifest) {
-              chunk.files = [...chunk.files].filter((f) => {
-                return f !== file;
-              });
-
-              delete compilation.assets[file];
-              // https://github.com/abhijithvijayan/wext-manifest-webpack-plugin/issues/1
-              // console.emoji('🦄', `${PLUGIN_NAME}: removed ${file}`, 29);
-              console.log(`${PLUGIN_NAME}: removed ${file}`);
-            }
-          }
-        });
-      });
-    }
-  }
-}
+var env = require('./utils/env');
 
 const targetBrowser = process.env.TARGET_BROWSER;
-const destPath = path.join(__dirname, 'build');
-const buildPath = path.join(destPath, targetBrowser);
+const buildPath = path.join(__dirname, 'build', targetBrowser);
+const extensionsPath = path.join(__dirname, 'src', 'extensions');
+const isWeb = targetBrowser === 'web';
 
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 var alias = {
   'react-dom': '@hot-loader/react-dom',
+  '@': path.resolve(__dirname, 'src'),
 };
 
 // load the secrets
 var secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js');
 
-var fileExtensions = [
-  'jpg',
-  'jpeg',
-  'png',
-  'gif',
-  'eot',
-  'otf',
-  'svg',
-  'ttf',
-  'woff',
-  'woff2',
-];
+var fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2'];
 
 if (fileSystem.existsSync(secretsPath)) {
   alias['secrets'] = secretsPath;
@@ -103,24 +32,23 @@ if (fileSystem.existsSync(secretsPath)) {
 
 var options = {
   mode: process.env.NODE_ENV || 'development',
-  entry: {
-    manifest: './src/manifest.json',
-    popup: path.join(__dirname, 'src', 'pages', 'popup', 'index.tsx'),
-    background: path.join(__dirname, 'src', 'pages', 'background', 'index.ts'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'content', 'index.ts'),
-    injectedScript: path.join(
-      __dirname,
-      'src',
-      'pages',
-      'injected',
-      'index.tsx'
-    ),
-  },
+  entry: isWeb
+    ? {
+        index: path.join(__dirname, 'src', 'index.tsx'),
+      }
+    : {
+        manifest: './src/manifest.json',
+        index: path.join(__dirname, 'src', 'index.tsx'),
+        background: path.join(extensionsPath, 'background', 'index.ts'),
+        content: path.join(extensionsPath, 'content', 'index.ts'),
+        injected: path.join(extensionsPath, 'injected', 'index.ts'),
+        feedback: path.join(extensionsPath, 'injected', 'feedback.tsx'),
+      },
   chromeExtensionBoilerplate: {
-    notHotReload: ['background', 'contentScript'],
+    notHotReload: isWeb ? [] : ['background', 'content'],
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: isWeb ? '[name]-[contenthash].bundle.js' : '[name].bundle.js',
     path: buildPath,
     clean: true,
     publicPath: ASSET_PATH,
@@ -174,44 +102,54 @@ var options = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
             loader: 'react-svg-loader',
             options: {
-              jsx: true // true outputs JSX tags
-            }
-          }
-        ]
+              jsx: true, // true outputs JSX tags
+            },
+          },
+        ],
       },
-      {
-        type: 'javascript/auto', // prevent webpack handling json with its own loaders,
-        test: /manifest\.json$/,
-        use: 'wext-manifest-loader',
-        exclude: /node_modules/,
-      },
+      ...(isWeb
+        ? []
+        : [
+            {
+              type: 'javascript/auto', // prevent webpack handling json with its own loaders,
+              test: /manifest\.json$/,
+              use: 'wext-manifest-loader',
+              exclude: /node_modules/,
+            },
+          ]),
     ],
   },
   resolve: {
     alias: alias,
     extensions: fileExtensions
       .map((extension) => '.' + extension)
-      .concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
+      .concat([
+        ...(isWeb ? ['.web.js', '.web.jsx', '.web.ts', '.web.tsx', '.web.css'] : []),
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.css',
+      ]),
   },
   plugins: [
-    new WextManifestWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.TARGET_BROWSER': JSON.stringify(process.env.TARGET_BROWSER),
     }),
     new CleanWebpackPlugin({ verbose: false }),
     new webpack.ProgressPlugin(),
-    // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
 
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/img',
+          from: 'src/public',
           to: buildPath,
           force: true,
         },
@@ -220,9 +158,9 @@ var options = {
     }),
 
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'popup', 'index.html'),
-      filename: 'popup.html',
-      chunks: ['popup'],
+      template: path.join(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+      chunks: ['index'],
       cache: false,
     }),
   ],

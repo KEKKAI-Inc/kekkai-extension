@@ -1,6 +1,6 @@
 import { TokenType } from '../types/eth';
 
-interface TokenItem {
+export interface TokenItem {
   type: - 1 | 1;
   contract?: string;
   tokenType: TokenType; // eth erc-721 erc-1155 erc-20
@@ -14,5 +14,4 @@ export interface Simulation {
   output?: TokenItem[];
   input?: TokenItem[];
   msg?: string;
-  honeypot?: string[]; // contract list
 }

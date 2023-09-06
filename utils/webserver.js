@@ -10,11 +10,10 @@ var WebpackDevServer = require('webpack-dev-server'),
   path = require('path');
 
 const targetBrowser = process.env.TARGET_BROWSER;
-const destPath = path.join(__dirname, 'build');
-const buildPath = path.join(destPath, targetBrowser);
+const buildPath = path.join(__dirname, 'build', targetBrowser);
 
-var options = config.chromeExtensionBoilerplate || {};
-var excludeEntriesToHotReload = options.notHotReload || [];
+var excludeEntriesToHotReload =
+  (config.chromeExtensionBoilerplate || {}).notHotReload || [];
 
 for (var entryName in config.entry) {
   if (excludeEntriesToHotReload.indexOf(entryName) === -1) {
@@ -40,6 +39,7 @@ var server = new WebpackDevServer(
     client: false,
     host: 'localhost',
     port: env.PORT,
+    historyApiFallback: true,
     static: {
       directory: buildPath,
     },

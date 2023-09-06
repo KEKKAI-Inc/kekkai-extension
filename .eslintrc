@@ -1,6 +1,115 @@
+// vscode click contextmenu format Document With --> Configure Default Formatter --> click Prettier ESlint
 {
-  "extends": "react-app",
+  "plugins": ["promise", "byted-internationalization", "react-hooks", "import"],
+  "extends": ["plugin:promise/recommended", "plugin:@typescript-eslint/recommended"],
   "globals": {
     "chrome": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": "",
+      "rules": {}
+    }
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": "warn",
+    "byted-internationalization/t-string": 2,
+    "eqeqeq": [2, "always", { "null": "ignore" }],
+    "import/export": 2,
+    "promise/always-return": "off",
+    "import/no-cycle": [2, { "ignoreExternal": true }],
+    "import/no-deprecated": 1,
+    "import/no-mutable-exports": 1,
+    "import/no-unassigned-import": [1, { "allow": ["**/*.{css,less,scss}"] }],
+    "import/no-unused-modules": 2,
+    "import/no-useless-path-segments": 2,
+    "import/order": [
+      2,
+      {
+        "pathGroups": [{ "pattern": "{packages,src,typings}/**", "group": "internal" }],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "groups": ["builtin", "external", ["internal", "unknown"], ["parent", "sibling", "index"], "object"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "prefer-const": ["error", { "ignoreReadBeforeAssign": true }],
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    // "max-lines-per-function": [2, { "max": 120 }],
+    "max-params": [2, 5],
+    // "max-lines": [2, { "max": 600 }],
+    "no-implicit-coercion": [2, { "boolean": false }],
+    "no-multiple-empty-lines": 2,
+    "no-restricted-imports": 0,
+    "operator-linebreak": 0,
+    "prefer-destructuring": [1, { "object": true, "array": false }],
+    "react/destructuring-assignment": 0,
+    "sort-imports": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    // use _<variable> to declare unused variable
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/comma-dangle": [2, "always-multiline"],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/indent": 0,
+    "@typescript-eslint/member-ordering": 0,
+    "@typescript-eslint/method-signature-style": 2,
+    "@typescript-eslint/naming-convention": [
+      1,
+      { "selector": "default", "format": ["camelCase"] },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      { "selector": "memberLike", "format": ["camelCase", "UPPER_CASE"] },
+      { "selector": "typeLike", "format": ["PascalCase"] },
+      { "selector": "function", "format": ["camelCase", "PascalCase"] },
+      { "selector": "objectLiteralProperty", "format": null }
+    ],
+    "@typescript-eslint/no-parameter-properties": 0,
+    "@typescript-eslint/no-restricted-imports": [
+      "error",
+      {
+        "paths": [{ "name": "lodash", "message": "Please use lodash-es instead." }]
+      }
+    ],
+    // "@typescript-eslint/no-shadow": [1, { "ignoreTypeValueShadow": true }],
+    "@typescript-eslint/no-use-before-define": [2, { "classes": false, "functions": false }],
+    "@typescript-eslint/ban-ts-comment": [
+      2,
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": "allow-with-description"
+      }
+    ]
   }
 }

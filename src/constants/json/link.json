@@ -1,7 +1,12 @@
 {
   "twitter": "https://twitter.com/0xKekkai",
-  "discord": "https://discord.gg/PwBpsnBU",
+  "discord": "https://discord.gg/fER6bFrJU2",
   "website": "https://www.kekkai.io",
-  "feedback": "https://kekkai.io#feedback",
-  "handbook": "https://unismart.gitbook.io/kekkai-handbook/"
+  "feedback": "https://kekkai.io",
+  "handbook": "https://kekkai-official.gitbook.io/kekkai-handbook",
+  "introduction": "https://kekkai-official.gitbook.io/kekkai-handbook/product-ji-neng-shui-ming/gai-yao",
+  "gasless_transaction": "",
+  "scam_detector": "https://kekkai-inc.github.io/scam-warning/",
+  "survey_en": "https://k24d38yxgbk.typeform.com/to/wHexmy8P",
+  "survey_ja": "https://k24d38yxgbk.typeform.com/to/DGlNJ2JO"
 }

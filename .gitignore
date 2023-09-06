@@ -17,10 +17,16 @@
 .env.production.local
 .history
 .vscode
+.firebase
 
 # secrets
 secrets.*.js
 
 # zip
-kekkai.zip
 *.log
+*.zip
+
+.dev-local.json
+
+**/*/dist
+/dist

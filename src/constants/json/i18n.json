@@ -7,12 +7,16 @@
     "en": "seconds",
     "ja": "秒"
   },
+  "home.company": {
+    "en": "KEKKAI",
+    "ja": "KEKKAI"
+  },
   "home.running_tip": {
-    "en": "Kekkai is running on the back of you.\nWe will be there when you attempt a transaction.",
-    "ja": "KEKKAIは目に見えないですが、ウォレットを常に守ってくれています。\nトランザクションが発生するとシミュレーターが起動します。"
+    "en": "is running on the back of you.We will be there when you attempt a transaction.",
+    "ja": "は目に見えないですが、ウォレットを常に守ってくれています。トランザクションが発生するとシミュレーターが起動します。"
   },
   "home.be_working_tip_before": {
-    "en": "Kekkai will be working after ",
+    "en": "KEKKAI will be working after ",
     "ja": "KEKKAIは "
   },
   "home.be_working_tip_after": {
@@ -67,29 +71,61 @@
     "en": "What is eth_sign?",
     "ja": "ETHサインとは？"
   },
+  "defend.sign_facing": {
+    "en": "You are probably facing a ",
+    "ja": "偽物の詐欺"
+  },
+  "defend.sign_gasless_transaction": {
+    "en": "gasless transaction (fake marketplace sign)",
+    "ja": "マーケットプレイスを使った詐欺"
+  },
+  "defend.sign_purchases_low": {
+    "en": " which moves (sells) your NFT purchases at an extremely low price. ",
+    "ja": "取引の可能性があります。この取引では極めて低い価格であなたが所有するNFTが買われる危険性が検出されています。"
+  },
+  "defend.see_more": {
+    "en": "see more",
+    "ja": "詳細"
+  },
   "defend.sign_tip_content": {
     "en": "A 32 byte message hash must be passed in for signature, so the message hash signer alone will not know what he is signing, whether it is a transaction profile, or anything else, so there is a potential risk of phishing. ",
     "ja": "署名には32バイトのメッセージハッシュを渡す必要があるため、メッセージハッシュ署名者だけでは何に署名しているのか分からないため、フィッシングの可能性があります。"
   },
   "defend.transaction_happen": {
     "en": "Changes happen in this transaction",
-    "ja": "この取引で発生する変更"
+    "ja": "この取引の詳細"
   },
   "defend.honeypot_detected": {
-    "en": "Honeypot scam detected.",
-    "ja": "ハニポット詐欺を検出しました。"
+    "en": "Honeypot scam or SBT.",
+    "ja": "ハニポット詐欺またSBT。"
   },
   "defend.what_honeypot": {
     "en": "What is honeypot scam?",
     "ja": "ハニーポット詐欺とは？"
   },
   "defend.what_honeypot_content": {
-    "en": "Smart contracts that look vulnerable but actually are not. It makes users believe that they can benefit from this contract, while in reality only the creator can retrieve them. We recommend cancelling this.",
-    "ja": "一見脆弱、あるいは普通に見えるが実際は違うスマートコントラクトを使った詐欺手法。ユーザーにそのコントラクトで利益が出るように見せかけ、実際はコントラクト作成者（詐欺師）だけが利益が出るように設計されている。そのような取引を検出するとKEKKAIではキャンセルを勧めています。"
+    "en": "It makes users believe that they can benefit from this contract, while in reality, only the creator can retrieve them. The selling is often restricted. We recommend canceling this.\n※ Please be informed that the warning will also pop up as soul bound token (SBT) cannot be sold either. If you are buying this token, please ignore this warning.",
+    "ja": "このトークンからユーザーに利益が得られるように見せかけ、実際に利益が出るのはトークンの販売者のみであるといった詐欺です。大抵の場合はトークンを2次販売できないコントラクトになっています。この警告を見て違和感を感じた方はキャンセルをお勧めします。\n※この警告は2次販売が不可能なSoul Bound Token（SBT）の購入時にも表示されます。このタイプのトークンを購入しようとされている方はそのまま取引を実行してください。"
   },
   "defend.transfer_token_tip": {
     "en": "This transaction could be a scam and it's gonna transfer your token.",
     "ja": "この取引は詐欺の可能性があり、その場合あなたのトークンが盗まれてしまいます"
+  },
+  "defend.upgrade_to_tip": {
+    "en": "May be an Exploit on the Old OpenSea Contract",
+    "ja": "旧OSコントラクト詐欺の可能性が検出されました。"
+  },
+  "defend.what_is_this_scam": {
+    "en": "What is this scam?",
+    "ja": "旧OSコントラクト詐欺とは？"
+  },
+  "defend.what_upgrade_to_content": {
+    "en": "This exploit is being used to steal your NFTs by signing over a permision of the old Opensea proxy contract that allows exploiters to drain your NFT wallets. We recommend canceling this.",
+    "ja": "この取引では以前Openseaにて使用されていたプロトコルを利用して、あなたが持っているトークンへのApproval（アクセス権）を奪おうとする、詐欺取引の可能性があります。取引をキャンセルし、取引先が問題ないか改めて確認することをお勧めします。"
+  },
+  "defend.what_upgrade_to_no_asset_lost": {
+    "en": "Seems like there's no asset to be lost.",
+    "ja": "失われる資産はないようです。"
   },
   "defend.transaction_loading": {
     "en": "Simulating...",
@@ -100,12 +136,12 @@
     "ja": "このトランザクションはエラーが発生します{{$1}}。"
   },
   "defend.transaction_fail_cost_gas": {
-    "en": " and it's gonna cost about {{$1}}eth which is a waste of gas",
-    "ja": "さらに、{{$1}}ethの無駄なガス代が発生します"
+    "en": " and it's gonna cost about {{$1}} which is a waste of gas",
+    "ja": "さらに、{{$1}}の無駄なガス代が発生します"
   },
   "defend.transaction_cost_gas": {
-    "en": "Suspected {{$1}}eth gas fee",
-    "ja": "{{$1}}ethのガス代が発生する見込みです"
+    "en": "Suspected {{$1}} gas fee",
+    "ja": "{{$1}}のガス代が発生する見込みです"
   },
   "defend.btn_reject": {
     "en": "Reject",
@@ -119,21 +155,145 @@
     "en": "Reason",
     "ja": "理由"
   },
+  "defend.no_support_reasons": {
+    "en": "Transaction cannot be simulated because of the reasons below",
+    "ja": "この取引は以下の理由により、シミュレーションを行うことができませんでした。"
+  },
+  "defend.no_support": {
+    "en": "This chain isn't supported on KEKKAI.",
+    "ja": "このチェーンはKEKKAIではまだ対応しておりません。"
+  },
+  "defend.you_can_feedback_01": {
+    "en": "You can give",
+    "ja": " "
+  },
+  "defend.you_can_feedback_02": {
+    "en": "feedback",
+    "ja": "フィードバック"
+  },
+  "defend.you_can_feedback_03": {
+    "en": "and we will support the chain as soon as possible.",
+    "ja": "として運営に報告頂けましたら、私たちもできるだけ早くこのチェーンに対応できるよう動いてまいります。"
+  },
   "defend.no_token_change": {
     "en": "No token is gonna changed but gas will cost.",
     "ja": "トランザクションの結果特に変化は起きませんが、ガス代がかかってしまいます。"
+  },
+  "defend.fake_token_title": {
+    "en": "Fake token detected.",
+    "ja": "フェイクトークンが検出されました。"
+  },
+  "defend.what_fake_token": {
+    "en": "What is fake token?",
+    "ja": "フェイクトークンとは？"
+  },
+  "defend.what_fake_token_content": {
+    "en": "You're tricked into buying fake NFTs or fake cryptocurrency. KEKKAI simulates trading and double-checks with the etherscan/opensea validation as well as other official channels and we recommend canceling this transaction.",
+    "ja": "本物は価値があるトークンを模した、偽物のNFTやFTをユーザーを騙して購入させる詐欺手法です。KEKKAIでは取引のシミュレーションの際に、etherscan/openseaの検証と、PJの公式情報とのダブルチェックを行っているため、偽のトークンの検出が可能となっています。そのため今回の取引はキャンセルをお勧めします。"
+  },
+  "defend.fake_token_notification": {
+    "en": "This token might be fake.",
+    "ja": "このトークンは偽物の可能性が検出されています。"
+  },
+  "defend.large_value_red_tip": {
+    "en": "Large price gap between the price and market valuation, please be cautious of this transaction",
+    "ja": "設定されている価格と市場の価値に大きな乖離があります。ご注意ください。"
+  },
+  "defend.large_value_yellow_tip": {
+    "en": "There’s a price gap between the selling price and market valuation, please be cautious of this transaction",
+    "ja": "今回の取引価格と市場での価値に乖離があります。取引の際はご注意ください。"
+  },
+  "defend.error": {
+    "en": "Error",
+    "ja": "エラー"
+  },
+  "defend.try_again": {
+    "en": "Try again",
+    "ja": "再読み込み"
+  },
+  "defend.item_no_data": {
+    "en": "No price data found",
+    "ja": "市場データが見つかりませんでした"
+  },
+  "defend.item_value": {
+    "en": "Value",
+    "ja": "価値"
+  },
+  "defend.not_open_source_title": {
+    "en": "Non-open source contract detected.",
+    "ja": "コントラクトのコードが非公開な取引が検出されました。"
+  },
+  "defend.not_open_source_content": {
+    "en": "Proceeding this may have a risk to lose your tokens/NFTs since it's a closed-source contract that may allows exploiters to drain your wallet. We recommend you reconsider this operation.",
+    "ja": "この取引の内容が開発者によって隠されているため、NFTやFTが盗まれるリスクがあります。取引相手やプラットフォームが信頼できるものか再確認をお勧めします。"
+  },
+  "defend.burn_scam": {
+    "en": "This contract code shows anybody could burn this NFT.",
+    "ja": "このコントラクトのコードでは、第三者が勝手にNFTをバーンできるようになっています。"
+  },
+  "defend.burn_scam_title": {
+    "en": "Why is this a danger?",
+    "ja": "なぜこれが危険なのでしょうか？"
+  },
+  "defend.burn_scam_content": {
+    "en": "The contract permits arbitrary burning of NFTs in the project via the burn function, by passing a specified tokenID, you may risk the potential loss of NFTs ownership. We recommend canceling this.",
+    "ja": "このコントラクトでは、同じプロジェクトのNFTをBurn関数を使って自由に焼却できるようになっており、トークンIDを指定されるとNFTがなくなってしまう可能性があります。そのため、取引はキャンセルをお勧めします。"
+  },
+  "defend.burn_scam_token_item": {
+    "en": "This NFT may be burned in the future.",
+    "ja": "このNFTは誰かにBurnされてしまう可能性があります。"
+  },
+  "defend.over_supply_content": {
+    "en": "Tokens you are purchasing may have massive inflated supply risk which may crash the value.",
+    "ja": "購入しようとしているトークンは、サプライが急増して価格が暴落する可能性があります。"
+  },
+  "defend.untradeable": {
+    "en": "Warning: Stolen NFT detected.",
+    "ja": "警告：盗難品のNFTが検出されました。"
+  },
+  "defend.untradeable_content": {
+    "en": "Opensea flagged this NFT for suspicious activity, but it's tradable on other NFT markets.",
+    "ja": "OpenseaではこのNFTは盗難品としてマーキングされていますが、他のマーケットプレイスでは通常通り取引可能です。"
+  },
+  "defend.untradeable_token_item": {
+    "en": "This NFT cannot be traded on Opensea.",
+    "ja": "このNFTはOpenseaで取引できません。"
   },
   "header.back": {
     "en": "Back",
     "ja": "戻る"
   },
+  "setting.setting": {
+    "en": "Setting",
+    "ja": "設定"
+  },
   "setting.language": {
     "en": "Language",
     "ja": "言語"
   },
+  "setting.allowlist": {
+    "en": "Whitelist",
+    "ja": "ホワイトリスト"
+  },
+  "setting.allowlist_setted": {
+    "en": "whitelists setted",
+    "ja": "個の情報がホワイトリストに登録されています"
+  },
+  "setting.allowlist_set_btn": {
+    "en": "Set Whitelist",
+    "ja": "ホワイトリストに登録"
+  },
   "setting.version_label": {
     "en": "App version:",
     "ja": "バージョン:"
+  },
+  "setting.valuation": {
+    "en": "NFT Valuation",
+    "ja": "NFTバリュエーション機能"
+  },
+  "setting.valuation_tip": {
+    "en": "🎉 Turn on to get the real time NFT valuation.",
+    "ja": "🎉 オンにすると取引するNFTの市場価値を分析、表示します。"
   },
   "copy.tip": {
     "en": "Copy to clipboard",
@@ -144,8 +304,8 @@
     "ja": "コピーされました！"
   },
   "setting.tip": {
-    "en": "Setting here 🚀",
-    "ja": "言語設定🚀"
+    "en": "Setting 🚀",
+    "ja": "設定🚀"
   },
   "feedback.feedback": {
     "en": "feedback",
@@ -173,7 +333,7 @@
   },
   "feedback.got_problem": {
     "en": "Got a problem with KEKKAI? ",
-    "ja": "KEKKAI使用に何か問題がありましたか？"
+    "ja": "KEKKAIに不明点やご意見などはございませんか？"
   },
   "feedback.why_verified": {
     "en": "Why this could be verified? ",
@@ -182,5 +342,209 @@
   "feedback.why_alarm": {
     "en": "Why am I getting this alarm? ",
     "ja": "なぜ警告が表示されたのでしょうか？"
+  },
+  "report.common_foot_btn": {
+    "en": "Report",
+    "ja": "通報する"
+  },
+  "report.title": {
+    "en": "Report scam",
+    "ja": "スキャムを通報する"
+  },
+  "report.title_des": {
+    "en": "Report to us when you find this site is a scam to let other users know and avoid facing risk.",
+    "ja": "詐欺サイトを見つけたら、他のユーザーたちを守るためにも、私たちに報告いただけますと幸いです。 "
+  },
+  "report.site_url": {
+    "en": "Site URL ",
+    "ja": "URL "
+  },
+  "report.site_url_placeholder": {
+    "en": "https://kekkai.io/ ",
+    "ja": "https://kekkai.io/ "
+  },
+  "report.contract_or_wallet_add": {
+    "en": "Contract/ Wallet address ",
+    "ja": "コントラクト/ ウォレットアドレス "
+  },
+  "report.contract_or_wallet_add_placeholder": {
+    "en": "If there's scam contract or wallet ",
+    "ja": "記入してください "
+  },
+  "report.details": {
+    "en": "Reason ",
+    "ja": "理由 "
+  },
+  "report.details_placeholder": {
+    "en": "Please write details as far as you can ",
+    "ja": "通報する理由を教えてください "
+  },
+  "report.btn_back": {
+    "en": "Back",
+    "ja": "戻る"
+  },
+  "report.btn_submit": {
+    "en": "Submit",
+    "ja": "提出"
+  },
+  "correct_right.correct_des": {
+    "en": "Is the warning correct?",
+    "ja": "この警告に不具合はありませんでしたか？"
+  },
+  "correct_right.correct_btn": {
+    "en": "Correct",
+    "ja": "正常"
+  },
+  "correct_right.incorrect_btn": {
+    "en": "Incorrect",
+    "ja": "異常"
+  },
+  "correct_right.reason": {
+    "en": "Tell us the reason why warning is incorrect.",
+    "ja": "警告がおかしい理由を教えていただけますか？"
+  },
+  "correct_right.submit": {
+    "en": "Enter to submit",
+    "ja": "送信を押してください"
+  },
+  "correct_right.submit_success": {
+    "en": "Thank you!",
+    "ja": "ありがとうございました！"
+  },
+  "correct_right.skip": {
+    "en": "Skip",
+    "ja": "スキップ"
+  },
+  "tip_reason.not_fill": {
+    "en": "Please fill the reason",
+    "ja": "理由の欄を埋めてください。"
+  },
+  "tip_url.not_fill": {
+    "en": "Please fill the url",
+    "ja": "URLを入力してください"
+  },
+  "tip_url.not_correct": {
+    "en": "URL format is not correct",
+    "ja": "URLが間違っています。"
+  },
+  "tip_contract.not_correct": {
+    "en": "Contract format is not correct",
+    "ja": "コントラクトのアドレスが間違っています。"
+  },
+  "tip_loading": {
+    "en": "Loading...",
+    "ja": "ロード中…"
+  },
+  "tip_submit.success": {
+    "en": "Submit successfully",
+    "ja": "送信完了"
+  },
+  "tip_submit.error": {
+    "en": "Submit failed",
+    "ja": "送信に失敗しました"
+  },
+  "allowlist.allowlist_setting": {
+    "en": "Whitelist Setting",
+    "ja": "ホワイトリスト設定"
+  },
+  "allowlist.allowlist_content": {
+    "en": "You can add the addresses, contracts, and websites you trust to the whitelist and skip the safety check warnings from KEKKAI.",
+    "ja": "信頼しているアドレス、コントラクト、サイトURLをホワイトリストに追加することで、そこで行われる取引ではシミュレーターが起動しない様にすることができます。"
+  },
+  "allowlist.allowlist_input_placeholder": {
+    "en": "Search by url/address",
+    "ja": "URL/アドレスで検索"
+  },
+  "allowlist.allowlist_add_input_placeholder": {
+    "en": "url/address",
+    "ja": "url/address"
+  },
+  "allowlist.allowlist_add_btn": {
+    "en": "Add",
+    "ja": "追加"
+  },
+  "allowlist.allowlist_add": {
+    "en": "Add whitelist",
+    "ja": "ホワイトリストに追加"
+  },
+  "allowlist.allowlist_add_label": {
+    "en": "Add to whitelist",
+    "ja": "ホワイトリストに追加する"
+  },
+  "allowlist.allowlist_add_content": {
+    "en": "KEKKAI will no longer give warning when you interact with it.",
+    "ja": "今後登録された情報で取引が行われる際には、KEKKAIは起動しなくなります。"
+  },
+  "allowlist.allowlist_url_address": {
+    "en": "URL/Address",
+    "ja": "URL/アドレス"
+  },
+  "allowlist.allowlist_type": {
+    "en": "Type",
+    "ja": "タイプ"
+  },
+  "allowlist.allowlist_delete": {
+    "en": "Delete",
+    "ja": "削除"
+  },
+  "allowlist.allowlist_cancel": {
+    "en": "Cancel",
+    "ja": "キャンセル"
+  },
+  "allowlist.allowlist_search": {
+    "en": "Search",
+    "ja": "検索"
+  },
+  "allowlist.setting_allowlist_empty": {
+    "en": "No whitelist has been added. Try to add some and make the transaction smooth.",
+    "ja": "ホワイトリストには何も登録されていません。ホワイトリストを上手く活用すれば、スムーズな取引が可能になります。"
+  },
+  "allowlist.current_allowlist_empty": {
+    "en": "Sorry! No item found. Please try again.",
+    "ja": "合致するものは見つかりませんでした。もう一度お試しください。"
+  },
+  "allowlist.allowlist_delete_confirm_label": {
+    "en": "Delete from whitelist?",
+    "ja": "ホワイトリストから削除しますか？"
+  },
+  "allowlist.allowlist_delete_confirm_content": {
+    "en": "Once deleted the whitelist is no longer available and KEKKAI will keep protecting you from it.",
+    "ja": "ホワイトリストから削除されると、そのサイトやコントラクトで取引を行う際にはシミュレーターが起動する様になります。"
+  },
+  "allowlist.url_or_address_empty": {
+    "en": "Please enter URL or Address",
+    "ja": "URL、もしくはコントラクトのアドレスを入力してください。"
+  },
+  "allowlist.url_or_address_exists": {
+    "en": "url or address already exists",
+    "ja": "入力された情報は既に登録されています。"
+  },
+  "allowlist.whitelist_deleted": {
+    "en": "Whitelist deleted",
+    "ja": "ホワイトリストから消去されました。"
+  },
+  "allowlist.whitelist_added": {
+    "en": "Whitelist added",
+    "ja": "ホワイトリストに追加されました。"
+  },
+  "allowlist.url_or_address_format_wrong": {
+    "en": "URL or Address format wrong",
+    "ja": "入力された情報に誤りがあります。"
+  },
+  "allowlist.allowlist_website": {
+    "en": "Website",
+    "ja": "Webサイト"
+  },
+  "allowlist.allowlist_address": {
+    "en": "Address",
+    "ja": "アドレス"
+  },
+  "allowlist.allowlist_total": {
+    "en": "Total",
+    "ja": "合計"
+  },
+  "allowlist.allowlist_item": {
+    "en": "Items",
+    "ja": "品目"
   }
 }

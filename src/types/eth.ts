@@ -1,4 +1,5 @@
 export enum TokenType {
+  UNKNOWN = 'unknown',
   ETH = 'eth',
   ERC_20 = 'erc-20',
   ERC_721 = 'erc-721',

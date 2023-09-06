@@ -1,0 +1,18 @@
+.kekkai-container {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.kekkai-container.extension {
+  min-width: 450px;
+}
+
+@media only screen and (min-width: 600px) {
+  .kekkai-container {
+    max-width: 600px;
+  }
+}
